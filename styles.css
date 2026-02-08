@@ -64,6 +64,8 @@ body.isLetterOpen {
 .heroBg {
   position: absolute;
   inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .heroBg::after {
@@ -78,9 +80,20 @@ body.isLetterOpen {
 .heroImg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:fill;
   filter: saturate(0.95) contrast(0.98);
   image-orientation: from-image;
+}
+
+.heroPhoto {
+  width: min(920px, calc(100vw - 32px));
+  max-height: 120vh;
+  height: auto;
+  object-fit: fill;
+  position: relative;
+  z-index: 1;
+  border-radius: 24px;
+  border: 1px solid color-mix(in oklab, var(--sand-2), var(--chocolate) 30%);
 }
 
 
@@ -89,6 +102,7 @@ body.isLetterOpen {
   left: 50%;
   bottom: 48px;
   transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   gap: 12px;
   align-items: center;
